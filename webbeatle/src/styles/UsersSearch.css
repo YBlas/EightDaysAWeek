@@ -1,0 +1,21 @@
+.UsersSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    margin-left: 100px;
+}
+
+.UserBox {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    margin: 5px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+}
