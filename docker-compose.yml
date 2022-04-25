@@ -9,7 +9,7 @@ services:
         target: /usr/src
     ports:
       - 6005:6969
-    command: bash -c "cd /usr/src && npm run dev"
+    command: bash -c "cd /usr/src && npm install && npm run dev"
     depends_on:
       - mongo_db
     environment: 
@@ -28,7 +28,7 @@ services:
       - api
     ports:
       - 3000:3000
-    command: bash -c "cd /usr/src && npm run start"
+    command: bash -c "cd /usr/src && npm install && npm run start"
 
   mongo_db:
     image: mongo:5
