@@ -20,7 +20,7 @@ import AddToCollection from './components/AddToCollection';
 import DeleteFromCollection from './components/DeleteFromCollection';
 
 const client = new ApolloClient({
-  uri: "http://localhost:6969/graphql",
+  uri: process.env.REACT_APP_API_URL,
   cache: new InMemoryCache()
 });
 

@@ -5,7 +5,10 @@ import { GqlAlbums } from '../types';
 import "../styles/Albums.css";
 
 const Albums: FC = () => {
-    const { data, loading, error, refetch } = useQuery<GqlAlbums>(GET_ALBUMS);
+    const { data, loading, error, refetch } = useQuery<GqlAlbums>(GET_ALBUMS,
+        {
+            fetchPolicy: 'network-only',
+        });
     console.log(data);
     return (
         <div className='Albums'>

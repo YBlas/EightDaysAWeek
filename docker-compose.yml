@@ -1,0 +1,41 @@
+version: "3.2"
+
+services:
+  api:
+    image: node:16
+    volumes:
+      - type: bind
+        source: ./BeatleGql
+        target: /usr/src
+    ports:
+      - 6005:6969
+    command: bash -c "cd /usr/src && npm run dev"
+    depends_on:
+      - mongo_db
+    environment: 
+      - MONGO_URL=mongodb://mongo_db:27017/Beatle
+
+  front:
+    image: node:16
+    environment:
+      REACT_APP_API_URL: http://localhost:6005
+      PORT: 3000
+    volumes:
+      - type: bind
+        source: ./webbeatle
+        target: /usr/src
+    depends_on:
+      - api
+    ports:
+      - 3000:3000
+    command: bash -c "cd /usr/src && npm run start"
+
+  mongo_db:
+    image: mongo:5
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes:
+      - ./data:/data/db
+    command: mongod --logpath=/dev/null
+    ports:
+      - 27017:27017
