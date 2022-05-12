@@ -9,7 +9,7 @@ const Albums: FC = () => {
         {
             fetchPolicy: 'network-only',
         });
-    console.log(data);
+    //console.log(data);
     return (
         <div className='Albums'>
             {loading && <p>Loading...</p>}
